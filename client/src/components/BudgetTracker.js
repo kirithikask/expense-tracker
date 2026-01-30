@@ -50,7 +50,7 @@ const BudgetTracker = () => {
     setError('');
     setSuccess('');
     try {
-      await axios.post('http://localhost:5000/api/budgets', formData);
+      await axios.post('https://expense-tracker-server-jtuc.onrender.com/api/budgets', formData);
       setSuccess(`Budget for ${formData.category} category added successfully!`);
       setFormData({ category: '', amount: '' });
       setShowForm(false);
