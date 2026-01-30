@@ -8,7 +8,7 @@ const Log = () => {
     // Fetch logs from API
     const fetchLogs = async () => {
       try {
-        const response = await fetch('/api/logs', {
+        const response = await fetch('https://expense-tracker-server-jtuc.onrender.com/api/logs', {
           headers: {
             'Authorization': `Bearer ${localStorage.getItem('token')}`
           }

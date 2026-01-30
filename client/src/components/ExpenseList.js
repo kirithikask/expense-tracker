@@ -23,7 +23,7 @@ const ExpenseList = () => {
 
   const fetchExpenses = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/expenses');
+      const res = await axios.get('https://expense-tracker-server-jtuc.onrender.com/api/expenses');
       setExpenses(res.data);
     } catch (err) {
       setError('Failed to fetch expenses');
@@ -35,7 +35,7 @@ const ExpenseList = () => {
   const deleteExpense = async (id) => {
     if (window.confirm('Are you sure you want to delete this expense?')) {
       try {
-        await axios.delete(`http://localhost:5000/api/expenses/${id}`);
+        await axios.delete(`https://expense-tracker-server-jtuc.onrender.com/api/expenses/${id}`);
         setExpenses(expenses.filter(expense => expense._id !== id));
       } catch (err) {
         setError('Failed to delete expense');
@@ -55,7 +55,7 @@ const ExpenseList = () => {
   const handleEditSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.put(`http://localhost:5000/api/expenses/${editingExpense._id}`, editFormData);
+      await axios.put(`https://expense-tracker-server-jtuc.onrender.com/api/expenses/${editingExpense._id}`, editFormData);
       setExpenses(expenses.map(exp => exp._id === editingExpense._id ? { ...exp, ...editFormData } : exp));
       setEditingExpense(null);
     } catch (err) {
